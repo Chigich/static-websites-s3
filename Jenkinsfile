@@ -8,8 +8,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Chigich/static-websites-s3.git',
-                    credentialsId: 'git-credentials'
+                    url: 'https://github.com/Chigich/static-websites-s3.git'
             }
         }
         stage('Build') {
