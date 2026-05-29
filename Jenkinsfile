@@ -32,10 +32,7 @@ pipeline {
           stage('Deploy') {
             steps {
                 sh '''
-                    aws s3 sync dist/ s3://$S3_BUCKET/ \
-                        --region $AWS_REGION \
-                        --delete \
-                        --cache-control "no-cache"
+                    aws s3 aws s3 cp index.html s3://$S3_BUCKET/index.html --region $AWS_REGION
                 '''
             }
         }
