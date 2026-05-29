@@ -27,14 +27,14 @@ pipeline {
                         aws configure set aws_access_key_id \$AWS_ACCESS_KEY_ID
                         aws configure set aws_secret_access_key \$AWS_SECRET_ACCESS_KEY
                         aws configure set region \${AWS_REGION}
-                        aws s3 sync dist/ s3://chirag-static/ --delete --acl public-read
+                        aws s3 sync dist/ s3://chirag-static/ --delete
                     """
                 }
             }
         }
     }
     post {
-        success { echo "Deployed to s3://$S3_BUCKET/" }
+        success { echo "Deployed: http://chirag-static.s3-website-us-east-1.amazonaws.com" }
         failure { echo 'Build Failed!' }
         always  { cleanWs() }
     }
